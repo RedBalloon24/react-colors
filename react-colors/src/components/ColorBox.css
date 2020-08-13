@@ -5,6 +5,8 @@
     display: inline-block;
     position: relative;
     cursor: pointer;
+    margin-bottom: -3.5px;
+    overflow-x: hidden;
 }
 
 .copy-button {
@@ -56,5 +58,4 @@
     text-align: center;
     line-height: 30px;
     text-transform: uppercase;
-    white-space: nowrap;   
 }
