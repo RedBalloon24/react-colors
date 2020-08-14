@@ -32,7 +32,7 @@ export default class Navbar extends Component {
 				<div className="logo">
 					<Link to="/">React Color Picker</Link>
 				</div>
-				{ isAllColors && (
+				{isAllColors && (
 					<div className="slider-container">
 						<span>Level: {level}</span>
 						<div className="slider">
@@ -54,8 +54,8 @@ export default class Navbar extends Component {
 					message={<span id="message-id">Format Changed to {format.toUpperCase()}</span>}
 					ContentProps={{
 						'aria-describedby': 'message-id'
-                    }}
-                    onClose={this.closeSnackbar}
+					}}
+					onClose={this.closeSnackbar}
 					action={[
 						<IconButton onClick={this.closeSnackbar} color="inherit" key="close" aria-label="close">
 							<CloseIcon />
