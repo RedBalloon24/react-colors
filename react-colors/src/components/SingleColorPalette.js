@@ -3,46 +3,8 @@ import ColorBox from './ColorBox';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
+import styles from '../styles/PaletteStyles';
 import { withStyles } from '@material-ui/styles';
-
-const styles = {
-	SingleColorPalette: {
-		height: '100vh',
-		overflow: 'hidden'
-	},
-	colors: {
-		height: '90%'
-	},
-	goBack: {
-		width: '20%',
-		height: '50%',
-		margin: '0 auto',
-		display: 'inline-block',
-		position: 'relative',
-		cursor: 'pointer',
-		marginBottom: '-3.5px',
-		backgroundColor: 'black',
-		'& a': {
-			width: '100px',
-			height: '30px',
-			position: 'absolute',
-			display: 'inline-block',
-			top: '50%',
-			left: '50%',
-			marginLeft: '-50px',
-			marginTop: '-15px',
-			textAlign: 'center',
-			outline: 'none',
-			background: 'rgba(255, 255, 255, 0.3)',
-			fontSize: '1rem',
-			lineHeight: '30px',
-			color: 'white',
-			textTransform: 'uppercase',
-			border: 'none',
-			textDecoration: 'none'
-		}
-	}
-};
 
 class SingleColorPalette extends Component {
 	constructor(props) {
@@ -75,7 +37,7 @@ class SingleColorPalette extends Component {
 			<ColorBox key={color.name} name={color.name} background={color[format]} isFullPalette={false} />
 		));
 		return (
-			<div className={classes.SingleColorPalette}>
+			<div className={classes.Palette}>
 				<Navbar handleFormatChange={this.changeFormat} isAllColors={false} />
 				<div className={classes.colors}>
 					{colorBoxes}
