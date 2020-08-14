@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
-import { Hidden } from '@material-ui/core';
 
 const styles = {
 	root: {
@@ -52,7 +51,7 @@ function MiniPalette(props) {
     ))
 
 	return (
-		<div className={classes.root}>
+		<div className={classes.root} onClick={props.handleClick}>
 			<div className={classes.colors}>
                 {miniColorBoxes}
             </div>
