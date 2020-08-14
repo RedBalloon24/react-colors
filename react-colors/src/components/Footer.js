@@ -1,16 +1,15 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 import './Footer.css';
 
-export default class Footer extends Component {
-	render() {
-		const { paletteName, emoji } = this.props;
-		return (
-			<Fragment>
-				<footer className="Footer">
-					{paletteName}
-					<span className="Footer-emoji">{emoji}</span>
-				</footer>
-			</Fragment>
-		);
-	}
+function Footer(props) {
+	const { paletteName, emoji } = props;
+
+	return (
+		<footer className="Footer">
+			{paletteName}
+			<span className="Footer-emoji">{emoji}</span>
+		</footer>
+	);
 }
+
+export default Footer;
