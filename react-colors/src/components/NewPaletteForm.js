@@ -9,6 +9,8 @@ import clsx from 'clsx';
 import styles from '../styles/NewPaletteFormStyles';
 import DraggableColorList from './DraggableColorList';
 import { arrayMove } from 'react-sortable-hoc';
+import { Link } from 'react-router-dom';
+import PaletteFormNav from './PaletteFormNav';
 ;
 
 class NewPaletteForm extends Component {
@@ -23,7 +25,6 @@ class NewPaletteForm extends Component {
 			currentColor: 'red',
 			colors: this.props.palettes[0].colors,
 			newColorName: '',
-			newPaletteName: ''
 		};
 		this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
 		this.handleDrawerClose = this.handleDrawerClose.bind(this);
@@ -72,11 +73,10 @@ class NewPaletteForm extends Component {
 		this.setState({ [e.target.name]: e.target.value });
 	}
 
-	handleSubmit() {
-		let newName = this.state.newPaletteName;
+	handleSubmit(newPaletteName) {
 		const newPalette = {
-			paletteName: newName,
-			id: newName.toLowerCase().replace(/ /g, '-'),
+			paletteName: newPaletteName,
+			id: newPaletteName.toLowerCase().replace(/ /g, '-'),
 			colors: this.state.colors
 		};
 		this.props.savePalette(newPalette);
@@ -107,47 +107,18 @@ class NewPaletteForm extends Component {
 	}
 
 	render() {
-		const { classes, maxColors } = this.props;
+		const { classes, maxColors, palettes } = this.props;
 		const { open, colors, newPaletteName, currentColor, newColorName } = this.state;
 		const paletteIsFull = colors.length >= maxColors;
 		return (
 			<div className={classes.root}>
-				<CssBaseline />
-				<AppBar
-					position="fixed"
-					color="default"
-					className={clsx(classes.appBar, {
-						[classes.appBarShift]: open
-					})}
-				>
-					<Toolbar>
-						<IconButton
-							color="inherit"
-							aria-label="open drawer"
-							onClick={this.handleDrawerOpen}
-							edge="start"
-							className={clsx(classes.menuButton, open && classes.hide)}
-						>
-							<MenuIcon />
-						</IconButton>
-						<Typography variant="h6" color="inherit" noWrap>
-							Create Palette
-						</Typography>
-						<ValidatorForm onSubmit={this.handleSubmit}>
-							<TextValidator
-								label="Palette Name"
-								value={newPaletteName}
-								name="newPaletteName"
-								onChange={this.handleChange}
-								validators={[ 'required', 'isPaletteNameUnique' ]}
-								errorMessages={[ 'Enter Palette Name', 'Name already used' ]}
-							/>
-							<Button variant="contained" color="primary" type="submit">
-								Save Palette
-							</Button>
-						</ValidatorForm>
-					</Toolbar>
-				</AppBar>
+        <PaletteFormNav 
+          open={open} 
+          classes={classes} 
+          palettes={palettes} 
+          handleSubmit={this.handleSubmit} 
+          handleDrawerOpen={this.handleDrawerOpen}
+        />
 				<Drawer
 					className={classes.drawer}
 					variant="persistent"
