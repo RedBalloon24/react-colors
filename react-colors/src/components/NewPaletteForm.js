@@ -1,42 +1,42 @@
 import React, { Component } from 'react';
-import clsx from 'clsx';
+import { ChromePicker } from 'react-color';
 import { withStyles } from '@material-ui/core/styles';
 import { Drawer, CssBaseline, AppBar, Toolbar, Typography, Divider, IconButton, Button } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import clsx from 'clsx';
 import styles from '../styles/NewPaletteFormStyles';
-import { ChromePicker } from 'react-color';
+import DraggableColorBox from './DraggableColorBox';
 
 class NewPaletteForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      open: true, 
-      currentColor: "burgundy",
-      colors: ["blue", "#e15764" ]
-    };
-    this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
-    this.handleDrawerClose = this.handleDrawerClose.bind(this);
-    this.updateCurrentColor = this.updateCurrentColor.bind(this);
-    this.addNewColor = this.addNewColor.bind(this);
-
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			open: true,
+			currentColor: 'burgundy',
+			colors: [ 'blue', '#e15764' ]
+		};
+		this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
+		this.handleDrawerClose = this.handleDrawerClose.bind(this);
+		this.updateCurrentColor = this.updateCurrentColor.bind(this);
+		this.addNewColor = this.addNewColor.bind(this);
+	}
 
 	handleDrawerOpen() {
 		this.setState({ open: true });
-	};
+	}
 
 	handleDrawerClose() {
 		this.setState({ open: false });
-	};
+	}
 
-  updateCurrentColor(newColor) {
-    this.setState({ currentColor: newColor.hex })
-  }
+	updateCurrentColor(newColor) {
+		this.setState({ currentColor: newColor.hex });
+	}
 
-  addNewColor() {
-    this.setState({ colors: [...this.state.colors, this.state.currentColor] });
-  }
+	addNewColor() {
+		this.setState({ colors: [ ...this.state.colors, this.state.currentColor ] });
+	}
 
 	render() {
 		const { classes } = this.props;
@@ -80,23 +80,24 @@ class NewPaletteForm extends Component {
 						</IconButton>
 					</div>
 					<Divider />
-          <Typography variant="h4">Design Your Palette</Typography>
-          <div>
-            <Button variant="contained" color="secondary">Clear Palette</Button>
-            <Button variant="contained" color="primary">Random Color</Button>
-          </div>
-          <ChromePicker 
-            color={this.state.currentColor} 
-            onChangeComplete={this.updateCurrentColor}
-          />
-          <Button 
-            variant="contained" 
-            color="primary" 
-            style={{ backgroundColor: this.state.currentColor }}
-            onClick={this.addNewColor}
-          >
-            Add Color
-          </Button>
+					<Typography variant="h4">Design Your Palette</Typography>
+					<div>
+						<Button variant="contained" color="secondary">
+							Clear Palette
+						</Button>
+						<Button variant="contained" color="primary">
+							Random Color
+						</Button>
+					</div>
+					<ChromePicker color={this.state.currentColor} onChangeComplete={this.updateCurrentColor} />
+					<Button
+						variant="contained"
+						color="primary"
+						style={{ backgroundColor: this.state.currentColor }}
+						onClick={this.addNewColor}
+					>
+						Add Color
+					</Button>
 				</Drawer>
 				<main
 					className={clsx(classes.content, {
@@ -104,11 +105,7 @@ class NewPaletteForm extends Component {
 					})}
 				>
 					<div className={classes.drawerHeader} />
-          <ul>
-            {this.state.colors.map(color => (
-              <li style={{ backgroundColor: color}}>{color}</li>
-            ))} 
-          </ul>
+					{this.state.colors.map((color) => <DraggableColorBox color={color} />)}
 				</main>
 			</div>
 		);
