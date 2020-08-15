@@ -55,6 +55,14 @@ const styles = (theme) => ({
 			duration: theme.transitions.duration.enteringScreen
 		}),
 		marginLeft: 0
+	},
+	container: {
+		width: '90%',
+		height: '100%',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center'
 	}
 });
 
