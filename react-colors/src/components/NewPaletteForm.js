@@ -30,14 +30,13 @@ class NewPaletteForm extends Component {
 	componentDidMount() {
 		ValidatorForm.addValidationRule('isColorNameUnique', (value) =>
 			this.state.colors.every(({ name }) => name.toLowerCase() !== value.toLowerCase())
-    );
-    ValidatorForm.addValidationRule('isColorUnique', (value) =>
-      this.state.colors.every(({ color }) => color !== this.state.currentColor)
-    );
+		);
+		ValidatorForm.addValidationRule('isColorUnique', (value) =>
+			this.state.colors.every(({ color }) => color !== this.state.currentColor)
+		);
 		ValidatorForm.addValidationRule('isPaletteNameUnique', (value) =>
 			this.props.palettes.every(({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase())
-    );
-
+		);
 	}
 
 	handleDrawerOpen() {
@@ -75,6 +74,12 @@ class NewPaletteForm extends Component {
 		this.props.history.push('/');
 	}
 
+	removeColor(colorName) {
+		this.setState({
+			colors: this.state.colors.filter((color) => color.name !== colorName)
+		});
+	}
+
 	render() {
 		const { classes } = this.props;
 		const { open } = this.state;
@@ -107,7 +112,7 @@ class NewPaletteForm extends Component {
 								value={this.state.newPaletteName}
 								name="newPaletteName"
 								onChange={this.handleChange}
-								validators={[ 'required', 'isPaletteNameUnique']}
+								validators={[ 'required', 'isPaletteNameUnique' ]}
 								errorMessages={[ 'Enter Palette Name', 'Name already used' ]}
 							/>
 							<Button variant="contained" color="primary" type="submit">
@@ -165,7 +170,14 @@ class NewPaletteForm extends Component {
 					})}
 				>
 					<div className={classes.drawerHeader} />
-					{this.state.colors.map((color) => <DraggableColorBox color={color.color} name={color.name} />)}
+					{this.state.colors.map((color) => (
+						<DraggableColorBox
+							key={color.name}
+							color={color.color}
+							name={color.name}
+							handleClick={() => this.removeColor(color.name)}
+						/>
+					))}
 				</main>
 			</div>
 		);
