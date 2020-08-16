@@ -11,6 +11,7 @@ const styles = (theme) => ({
 		}),
 		flexDirection: 'row',
 		justifyContent: 'space-between',
+		alignItems: 'center',
 		height: '64px'
 	},
 	appBarShift: {
@@ -24,8 +25,14 @@ const styles = (theme) => ({
 	menuButton: {
 		marginRight: theme.spacing(2)
 	},
-	validator: {
-		flexDirection: ""
+	navBtns: {
+		marginRight: '1rem',
+		'& a': {
+			textDecoration: 'none'
+		}
+	},
+	button: {
+		margin: '0 0.5rem'
 	}
 });
 
