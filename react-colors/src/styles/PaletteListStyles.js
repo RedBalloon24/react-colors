@@ -15,12 +15,12 @@ export default {
 	},
 	nav: {
 		width: '100%',
-		display: 'flex',
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		color: 'white',
-		'& a': {
-			color: 'white'
+		display: "flex",
+		justifyContent: "space-between",
+		alignItems: "center",
+		color: "white",
+		"& a": {
+			color: "white"
 		}
 	},
 	palettes: {

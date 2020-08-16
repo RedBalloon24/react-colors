@@ -44,7 +44,7 @@ export default class NewPaletteModal extends Component {
 		return (
 			<div>
 				<Dialog open={this.state.stage === 'emoji'} onClose={hideForm}>
-                    <DialogTitle id="form-dialog-title">Choose a Palette Emoji</DialogTitle>
+					<DialogTitle id="form-dialog-title">Choose a Palette Emoji</DialogTitle>
 					<Picker title="Pick an Emoji" onSelect={this.savePalette} />
 				</Dialog>
 				<Dialog open={this.state.stage === 'name'} onClose={hideForm} aria-labelledby="form-dialog-title">

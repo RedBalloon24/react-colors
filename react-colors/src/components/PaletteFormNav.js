@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import { CssBaseline, AppBar, Toolbar, Typography, IconButton, Button } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import EditIcon from '@material-ui/icons/Edit';
 import clsx from 'clsx';
-import styles from '../styles/PaletteFormNavStyles';
 import NewPaletteModal from './NewPaletteModal';
+import styles from '../styles/PaletteFormNavStyles';
 
 class PaletteFormNav extends Component {
 	constructor(props) {
@@ -56,7 +56,7 @@ class PaletteFormNav extends Component {
 							edge="start"
 							className={clsx(classes.menuButton, open && classes.hide)}
 						>
-							<MenuIcon />
+							<EditIcon />
 						</IconButton>
 						<Typography variant="h6" color="inherit" noWrap>
 							Create A Palette

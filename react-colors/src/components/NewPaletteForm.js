@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
+import { arrayMove } from 'react-sortable-hoc';
 import { withStyles } from '@material-ui/core/styles';
 import { Drawer, Typography, Divider, IconButton, Button } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import clsx from 'clsx';
-import styles from '../styles/NewPaletteFormStyles';
 import DraggableColorList from './DraggableColorList';
-import { arrayMove } from 'react-sortable-hoc';
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
+import styles from '../styles/NewPaletteFormStyles';
 
 class NewPaletteForm extends Component {
 	static defaultProps = {
@@ -48,7 +48,7 @@ class NewPaletteForm extends Component {
 
 	handleSubmit(newPalette) {
 		newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g, '-');
-		newPalette.colors= this.state.colors;
+		newPalette.colors = this.state.colors;
 		this.props.savePalette(newPalette);
 		this.props.history.push('/');
 	}
