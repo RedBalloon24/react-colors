@@ -40,15 +40,15 @@ export default class NewPaletteModal extends Component {
 	}
 
 	render() {
-		const { newPaletteName } = this.state;
+		const { newPaletteName, stage } = this.state;
 		const { hideForm } = this.props;
 		return (
 			<div>
-				<Dialog open={this.state.stage === 'emoji'} onClose={hideForm}>
+				<Dialog open={stage === 'emoji'} onClose={hideForm}>
 					<DialogTitle id="form-dialog-title">Choose a Palette Emoji</DialogTitle>
 					<Picker title="Pick an Emoji" onSelect={this.savePalette} />
 				</Dialog>
-				<Dialog open={this.state.stage === 'name'} onClose={hideForm} aria-labelledby="form-dialog-title">
+				<Dialog open={stage === 'name'} onClose={hideForm} aria-labelledby="form-dialog-title">
 					<DialogTitle id="form-dialog-title">Choose a Palette Name</DialogTitle>
 					<ValidatorForm onSubmit={this.showEmojiPicker}>
 						<DialogContent>

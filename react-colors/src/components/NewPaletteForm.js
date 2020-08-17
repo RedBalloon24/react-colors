@@ -8,6 +8,7 @@ import DraggableColorList from './DraggableColorList';
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
 import styles from '../styles/NewPaletteFormStyles';
+import seedPalettes from '../seedPalettes';
 
 class NewPaletteForm extends Component {
 	static defaultProps = {
@@ -18,7 +19,7 @@ class NewPaletteForm extends Component {
 		super(props);
 		this.state = {
 			open: true,
-			colors: this.props.palettes[0].colors
+			colors: seedPalettes[0].colors
 		};
 		this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
 		this.handleDrawerClose = this.handleDrawerClose.bind(this);
@@ -70,7 +71,7 @@ class NewPaletteForm extends Component {
 	}
 
 	addRandomColor() {
-		const allColors = this.props.palettes.map((p) => p.colors).flat();
+		const allColors = seedPalettes.map((p) => p.colors).flat();
 		let random = Math.floor(Math.random() * allColors.length);
 		const randomColor = allColors[random];
 		this.setState({ colors: [ ...this.state.colors, randomColor ] });

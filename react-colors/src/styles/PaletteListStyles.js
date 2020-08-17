@@ -57,5 +57,22 @@ export default {
 			gridTemplateColumns: 'repeat(1, 100%)',
 			gridGap: '1.4rem'
 		}
+	},
+	resetContainer: {
+		alignSelf: 'center',
+		marginTop: '15%',
+		backgroundColor: 'white',
+		padding: '15%',
+		"& h1": {
+			fontSize: '1rem'
+		}
+	},
+	buttonContainer: {
+		display: 'flex', 
+		justifyContent: 'center'
+	},
+	resetButton: { 
+		color: 'white',
+		cursor: 'pointer'
 	}
 };
