@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { arrayMove } from 'react-sortable-hoc';
+import arrayMove from 'array-move';
 import { withStyles } from '@material-ui/core/styles';
 import { Drawer, Typography, Divider, IconButton, Button } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -79,7 +79,6 @@ class NewPaletteForm extends Component {
 			random = Math.floor(Math.random() * allColors.length);
 			randomColor = allColors[random];
 			isDuplicateColor = this.state.colors.some((color) => color.name === randomColor.name);
-			console.log(randomColor)
 		}
 		this.setState({ colors: [ ...this.state.colors, randomColor ] });
 	}
