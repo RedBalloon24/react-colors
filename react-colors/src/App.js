@@ -73,19 +73,6 @@ class App extends Component {
 								/>
 								<Route
 									exact
-									path="/"
-									render={(routeProps) => (
-										<Page>
-											<PaletteList
-												palettes={this.state.palettes}
-												deletePalette={this.deletePalette}
-												{...routeProps}
-											/>
-										</Page>
-									)}
-								/>
-								<Route
-									exact
 									path="/palette/:id"
 									render={(routeProps) => (
 										<Page>
@@ -109,6 +96,17 @@ class App extends Component {
 										</Page>
 									)}
 								/>
+								<Route
+									render={(routeProps) => (
+										<Page>
+											<PaletteList
+												palettes={this.state.palettes}
+												deletePalette={this.deletePalette}
+												{...routeProps}
+											/>
+										</Page>
+									)}
+								/>{' '}
 							</Switch>
 						</CSSTransition>
 					</TransitionGroup>
