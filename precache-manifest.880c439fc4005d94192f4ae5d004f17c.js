@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4d0de6aa33771ea8e0481bc77623c18f",
+    "revision": "dc6630ed892936fe243abc2a1d739971",
     "url": "/react-colors/index.html"
   },
   {
-    "revision": "2f5702d8b83da00e63b3",
+    "revision": "ddd272fc42dcabdc23a8",
     "url": "/react-colors/static/css/2.0da342d8.chunk.css"
   },
   {
-    "revision": "7cfe0759552046e16b2e",
+    "revision": "c418bf16c527453d577d",
     "url": "/react-colors/static/css/main.1611ed39.chunk.css"
   },
   {
-    "revision": "2f5702d8b83da00e63b3",
-    "url": "/react-colors/static/js/2.fbb8a71b.chunk.js"
+    "revision": "ddd272fc42dcabdc23a8",
+    "url": "/react-colors/static/js/2.62b14ec4.chunk.js"
   },
   {
     "revision": "fe2f19c5d5965d51615a596cf8d07fe9",
-    "url": "/react-colors/static/js/2.fbb8a71b.chunk.js.LICENSE.txt"
+    "url": "/react-colors/static/js/2.62b14ec4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7cfe0759552046e16b2e",
-    "url": "/react-colors/static/js/main.111b0875.chunk.js"
+    "revision": "c418bf16c527453d577d",
+    "url": "/react-colors/static/js/main.ae1b020f.chunk.js"
   },
   {
     "revision": "bb07e0b96fc8d3ac97e1",
