@@ -70,15 +70,20 @@ class NewPaletteForm extends Component {
 		this.setState({ colors: [] });
 	}
 
+	checkDuplicateColor(colorName) {
+		return this.state.colors.some((color) => color.name === colorName);
+	}
+
 	addRandomColor() {
 		const allColors = seedPalettes.map((p) => p.colors).flat();
 		let random;
 		let randomColor;
 		let isDuplicateColor = true;
+
 		while (isDuplicateColor) {
 			random = Math.floor(Math.random() * allColors.length);
 			randomColor = allColors[random];
-			isDuplicateColor = this.state.colors.some((color) => color.name === randomColor.name);
+			isDuplicateColor = this.checkDuplicateColor(randomColor.name);
 		}
 		this.setState({ colors: [ ...this.state.colors, randomColor ] });
 	}

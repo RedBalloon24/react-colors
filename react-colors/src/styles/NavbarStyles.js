@@ -20,7 +20,7 @@ export default {
 			color: 'black'
 		},
 		[sizes.down('xs')]: {
-			display: 'none'
+			fontSize: '12px'
 		}
 	},
 	slider: {
@@ -47,11 +47,16 @@ export default {
 			width: '150px'
 		},
 		[sizes.down('xs')]: {
-			width: '120px'
+			width: '90px'
 		}
 	},
 	selectContainer: {
 		marginLeft: 'auto',
 		marginRight: '1rem'
+	},
+	select: {
+		[sizes.down('xs')]: {
+			fontSize: '12px'
+		}
 	}
 };
