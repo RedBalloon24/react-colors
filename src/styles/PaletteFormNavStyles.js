@@ -38,7 +38,7 @@ const styles = (theme) => ({
 			textDecoration: 'none'
 		},
 		[sizes.down('xs')]: {
-			marginRight: '0.5'
+			marginRight: '0.5rem'
 		}
 	},
 	button: {

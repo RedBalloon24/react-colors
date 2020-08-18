@@ -9,7 +9,7 @@ export default {
 		display: 'inline-block',
 		position: 'relative',
 		cursor: 'pointer',
-		marginBottom: '-5.5px',
+		marginBottom: '-5px',
 		overflow: 'none',
 		'&:hover svg': {
 			color: 'white',
